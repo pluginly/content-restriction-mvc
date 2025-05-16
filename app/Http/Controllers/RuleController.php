@@ -2,8 +2,8 @@
 
 namespace ContentRestriction\App\Http\Controllers;
 
-use ContentRestriction\App\Helpers\Response;
 use ContentRestriction\App\Repositories\RuleRepository;
+use ContentRestriction\WpMVC\Routing\Response;
 use WP_REST_Request;
 
 class RuleController extends Controller {
@@ -24,16 +24,15 @@ class RuleController extends Controller {
 		}
 
 		if ( ! empty( $errors ) ) {
-			return Response::error(
-				'rule_data_invalid',
-				$errors,
-				'rules/create',
-				422
+			return Response::send(
+				[
+					'messages' => $errors,
+				], 422
 			);
 		}
 
-		return Response::success(
-			( new RuleRepository() )->create( $data )
+		return Response::send(
+			['success' => ( new RuleRepository() )->create( $data )],
 		);
 	}
 
@@ -41,18 +40,15 @@ class RuleController extends Controller {
 		$id = (string) $request->get_param( 'id' );
 
 		if ( empty( $id ) ) {
-			return Response::error(
-				'invalid_id',
-				__( 'Invalid Rule ID is provided.', 'content-restriction' ),
-				'rules/read',
-				404
+			return Response::send(
+				[
+					'messages' => __( 'Invalid Rule ID is provided.', 'content-restriction' ),
+				], 404
 			);
 		}
 
-		return Response::success(
-			( new RuleRepository() )->read(
-				$id
-			)
+		return Response::send(
+			['data' => ( new RuleRepository() )->get( $id )],
 		);
 	}
 
@@ -79,18 +75,15 @@ class RuleController extends Controller {
 		}
 
 		if ( ! empty( $errors ) ) {
-			return Response::error(
-				'rule_update_required_fields_missing',
-				$errors,
-				'rules/update',
-				422
+			return Response::send(
+				[
+					'messages' => $errors,
+				], 422
 			);
 		}
 
-		return Response::success(
-			( new RuleRepository() )->update(
-				$id, $data
-			)
+		return Response::send(
+			['data' => ( new RuleRepository() )->update( $id, $data )],
 		);
 	}
 
@@ -98,24 +91,29 @@ class RuleController extends Controller {
 		$id = (string) $request->get_param( 'id' );
 
 		if ( empty( $id ) ) {
-			return Response::error(
-				'invalid_id',
-				__( 'Invalid Rule ID is provided.', 'content-restriction' ),
-				'rules/delete',
-				422
+			return Response::send(
+				[
+					'messages' => __( 'Invalid Rule ID is provided.', 'content-restriction' ),
+				], 422
 			);
 		}
 
-		return Response::success(
-			( new RuleRepository() )->delete(
-				$id
-			)
+		return Response::send(
+			['data' => ( new RuleRepository() )->delete( $id )],
 		);
 	}
 
 	public function list() {
-		return Response::success(
-			( new RuleRepository() )->get_all()
-		);
+		try {
+			return Response::send(
+				['data' => ( new RuleRepository() )->get_all()],
+			);
+		} catch ( \Throwable $th ) {
+			return Response::send(
+				[
+					'messages' => $th->getMessage(),
+				], 422
+			);
+		}
 	}
 }

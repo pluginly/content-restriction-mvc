@@ -43,10 +43,12 @@ export default function List() {
   useEffect( () => {
     postData( 'content-restriction/rules/list' )
       .then( ( res ) => {
-          setRules(res);
-          setRulesLoadedLoaded(true);
+        setRules(res?.data);
+        setRulesLoadedLoaded(true);
       } )
       .catch( ( error ) => {
+        setRules([]);
+        console.log('error : ', error );
         openNotificationWithIcon('error', __( "Something wen't wrong!", 'content-restriction' ))
       });
 
