@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./resources/js/components/Preloader.js":
-/*!**********************************************!*\
-  !*** ./resources/js/components/Preloader.js ***!
-  \**********************************************/
+/***/ "./resources/admin-dashboard/components/Preloader.js":
+/*!***********************************************************!*\
+  !*** ./resources/admin-dashboard/components/Preloader.js ***!
+  \***********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -27,10 +27,10 @@ const Preloader = () => {
 
 /***/ }),
 
-/***/ "./resources/js/scss/components.scss":
-/*!*******************************************!*\
-  !*** ./resources/js/scss/components.scss ***!
-  \*******************************************/
+/***/ "./resources/admin-dashboard/scss/components.scss":
+/*!********************************************************!*\
+  !*** ./resources/admin-dashboard/scss/components.scss ***!
+  \********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -39,10 +39,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/scss/global.scss":
-/*!***************************************!*\
-  !*** ./resources/js/scss/global.scss ***!
-  \***************************************/
+/***/ "./resources/admin-dashboard/scss/global.scss":
+/*!****************************************************!*\
+  !*** ./resources/admin-dashboard/scss/global.scss ***!
+  \****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -374,11 +374,11 @@ module.exports = window["ReactDOM"];
 /******/ 		}
 /******/ 		// object to store loaded CSS chunks
 /******/ 		var installedCssChunks = {
-/******/ 			"js/admin-app": 0
+/******/ 			"admin/dashboard": 0
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.miniCss = (chunkId, promises) => {
-/******/ 			var cssChunks = {"resources_js_boot_App_js-node_modules_react-tabs_style_react-tabs_css":1};
+/******/ 			var cssChunks = {"resources_admin-dashboard_boot_App_js-node_modules_react-tabs_style_react-tabs_css":1};
 /******/ 			if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 			else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 				promises.push(installedCssChunks[chunkId] = loadStylesheet(chunkId).then(() => {
@@ -405,7 +405,7 @@ module.exports = window["ReactDOM"];
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"js/admin-app": 0
+/******/ 			"admin/dashboard": 0
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.j = (chunkId, promises) => {
@@ -491,21 +491,21 @@ module.exports = window["ReactDOM"];
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 (() => {
-/*!*******************************!*\
-  !*** ./resources/js/index.js ***!
-  \*******************************/
+/*!********************************************!*\
+  !*** ./resources/admin-dashboard/index.js ***!
+  \********************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_Preloader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Preloader */ "./resources/js/components/Preloader.js");
-/* harmony import */ var _scss_global_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scss/global.scss */ "./resources/js/scss/global.scss");
-/* harmony import */ var _scss_components_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scss/components.scss */ "./resources/js/scss/components.scss");
+/* harmony import */ var _components_Preloader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Preloader */ "./resources/admin-dashboard/components/Preloader.js");
+/* harmony import */ var _scss_global_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scss/global.scss */ "./resources/admin-dashboard/scss/global.scss");
+/* harmony import */ var _scss_components_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./scss/components.scss */ "./resources/admin-dashboard/scss/components.scss");
 
 
 
-const App = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.lazy)(() => Promise.all(/*! import() */[__webpack_require__.e("vendors-node_modules_ant-design_icons_es_icons_AppstoreOutlined_js-node_modules_ant-design_ic-7b2c9d"), __webpack_require__.e("resources_js_boot_App_js-node_modules_react-tabs_style_react-tabs_css")]).then(__webpack_require__.bind(__webpack_require__, /*! ./boot/App */ "./resources/js/boot/App.js")));
+const App = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.lazy)(() => Promise.all(/*! import() */[__webpack_require__.e("vendors-node_modules_ant-design_icons_es_icons_AppstoreOutlined_js-node_modules_ant-design_ic-7b2c9d"), __webpack_require__.e("resources_admin-dashboard_boot_App_js-node_modules_react-tabs_style_react-tabs_css")]).then(__webpack_require__.bind(__webpack_require__, /*! ./boot/App */ "./resources/admin-dashboard/boot/App.js")));
 
 
 function initializeApp(container) {
@@ -535,4 +535,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /******/ })()
 ;
-//# sourceMappingURL=admin-app.js.map
+//# sourceMappingURL=dashboard.js.map

@@ -3,10 +3,10 @@
     "baseUrl": ".",
     "paths": {
       "@icon/*": ["assets/icon"],
-      "@components/*": ["resources/js/components/*"],
-      "@features/*": ["resources/js/features/*"],
-      "@helpers/*": ["resources/js/helpers/*"],
-      "@store/*": ["resources/js/store/*"]
+      "@components/*": ["resources/admin-dashboard/components/*"],
+      "@features/*": ["resources/admin-dashboard/features/*"],
+      "@helpers/*": ["resources/admin-dashboard/helpers/*"],
+      "@store/*": ["resources/admin-dashboard/store/*"]
     }
   },
   "exclude": [".git", "app", "node_modules", "vendor"]
