@@ -2,8 +2,8 @@
 
 namespace ContentRestriction\App\Http\Controllers;
 
-use ContentRestriction\Repositories\RuleRepository;
-use ContentRestriction\Utils\Response;
+use ContentRestriction\App\Helpers\Response;
+use ContentRestriction\App\Repositories\RuleRepository;
 use WP_REST_Request;
 
 class RuleController extends Controller {

@@ -2,8 +2,8 @@
 
 namespace ContentRestriction\App\Providers;
 
+use ContentRestriction\WpMVC\App;
 use ContentRestriction\WpMVC\Contracts\Provider;
-use LoginMeNow\WpMVC\App;
 
 class MenuServiceProvider implements Provider {
 	public function boot() {
@@ -86,6 +86,6 @@ class MenuServiceProvider implements Provider {
 	}
 
 	public function render_dashboard(): void {
-		include_once 'Views/dashboard.php';
+		include_once content_restriction_dir( 'resources/views/admin/dashboard.php' );
 	}
 }
