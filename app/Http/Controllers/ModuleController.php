@@ -2,23 +2,55 @@
 
 namespace ContentRestriction\App\Http\Controllers;
 
+use ContentRestriction\WpMVC\Routing\Response;
+
 class ModuleController extends Controller {
 	public function who_can_see( \WP_REST_Request $request ): array {
 		$modules = apply_filters( 'content_restriction_who_can_see_module_list', [] );
 
-		return $this->filter( $request, $modules );
+		try {
+			return Response::send(
+				['data' => $this->filter( $request, $modules )],
+			);
+		} catch ( \Throwable $th ) {
+			return Response::send(
+				[
+					'messages' => $th->getMessage(),
+				], 422
+			);
+		}
 	}
 
 	public function what_content( \WP_REST_Request $request ): array {
 		$modules = apply_filters( 'content_restriction_what_content_module_list', [] );
 
-		return $this->filter( $request, $modules );
+		try {
+			return Response::send(
+				['data' => $this->filter( $request, $modules )],
+			);
+		} catch ( \Throwable $th ) {
+			return Response::send(
+				[
+					'messages' => $th->getMessage(),
+				], 422
+			);
+		}
 	}
 
 	public function restrict_view( \WP_REST_Request $request ): array {
 		$modules = apply_filters( 'content_restriction_restrict_view_module_list', [], $request );
 
-		return $this->filter( $request, $modules );
+		try {
+			return Response::send(
+				['data' => $this->filter( $request, $modules )],
+			);
+		} catch ( \Throwable $th ) {
+			return Response::send(
+				[
+					'messages' => $th->getMessage(),
+				], 422
+			);
+		}
 	}
 
 	/**

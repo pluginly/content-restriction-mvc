@@ -62,7 +62,7 @@ const RulesModal = () => {
             restrict_view : restrictViewAction?.key,
         } )
             .then( ( res ) => {
-                setRulesType(res);
+                setRulesType(res.data);
                 setRulesTypeLoaded(true);
                 let ruleType = null;
 
@@ -75,7 +75,7 @@ const RulesModal = () => {
                 }
 
                 // Filter the result and access the first element
-                const action = res.find(item => item.key === ruleType);
+                const action = res.data.find(item => item.key === ruleType);
                 
                 if (action) { // Check if action is not empty
                     if (selectedType === 'who-can-see') {
