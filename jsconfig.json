@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@icon/*": ["assets/icon"],
+      "@components/*": ["resources/js/components/*"],
+      "@features/*": ["resources/js/features/*"],
+      "@helpers/*": ["resources/js/helpers/*"],
+      "@store/*": ["resources/js/store/*"]
+    }
+  },
+  "exclude": [".git", "app", "node_modules", "vendor"]
+}
