@@ -4,7 +4,7 @@ namespace ContentRestriction\App\Providers;
 
 class BlurServiceProvider implements ModuleServiceProviderBase {
 
-	public function boot( $role ): void;
+	public function boot( $rule ): void;
 
 	/**
 	 * Unique key of the module, like: override-contents

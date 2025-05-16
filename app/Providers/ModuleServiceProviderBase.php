@@ -2,26 +2,30 @@
 
 namespace ContentRestriction\App\Providers;
 
-use ContentRestriction\App\Contracts\ModuleBase;
+abstract class ModuleServiceProviderBase {
 
-abstract class ModuleServiceProviderBase implements ModuleBase {
+	public static array $rule;
+	public static array $options;
+	public static string $key;
+	public static string $name;
 
-	abstract public function boot( $role ): void;
-	
-
-	public static function get_icon() {
-		return '#';
-	}
+	abstract public function boot( $rule ): void;
 
 	/**
 	 * Unique key of the module, like: override-contents
 	 */
-	abstract public static function get_key(): string;
+	abstract public static function set_key(): string;
 
 	/**
 	 * Name of the module, like: Override Contents
 	 */
-	abstract public static function get_name(): string;
+	abstract public static function set_name(): string;
+
+	abstract public static function set_rule( $rule ): void;
+
+	public static function get_rule(): array {
+		return self::$rule ?? [];
+	}
 
 	/**
 	 * Sub modules
@@ -32,4 +36,8 @@ abstract class ModuleServiceProviderBase implements ModuleBase {
 	 * Get selected options for the module
 	 */
 	abstract public static function get_options(): array;
+
+	public static function get_icon() {
+		return '#';
+	}
 }
